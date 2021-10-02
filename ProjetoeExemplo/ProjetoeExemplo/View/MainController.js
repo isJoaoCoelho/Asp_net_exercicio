@@ -4,6 +4,8 @@
 
     var MainController = function($scope, $interval, $location) {
 
+        $scope.username = "";
+
         var decrementCountdown = function(){
             $scope.countdown -= 1;
             if($scope.countdown < 1){
@@ -24,7 +26,21 @@
             $location.path("/user/" + username);
         };
 
-        $scope.username = "angular";
+        var checklogin = function () {
+            let cookies = document.cookie;
+            var arraycookies = cookies.split(';');
+            for (var i = 0; i < arraycookies.length; i++) {
+                if (arraycookies[i].includes("token")) {
+                    $scope.username = "Loged in to user: TEMP";
+                    $scope.autenticated = true;
+                    return;
+                }
+            }
+            $scope.username = "Anonymous user, please login";
+        };
+
+
+        checklogin();
         $scope.countdown = 5;
         //startCountdown();
     };
