@@ -1,0 +1,15 @@
+<div>
+  <!-- Contact Section -->
+    <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="login">
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Login</h3>
+        <span ng-style={color:'red'}>{{errormsg}}</span>
+        <form ng-submit="makelogin(emailuser,passworduser)">
+            <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email" ng-model="emailuser">
+            <input class="w3-input w3-section w3-border" type="text" placeholder="Password" required name="Password" ng-model="passworduser">
+            <a href="#Singin" ng-style={color:'blue'}>Don't have an account? Click here'</a><br />
+            <button class="w3-button w3-black" type="submit">
+                <i class="fa fa-paper-plane"></i> Login
+            </button>
+        </form>
+    </div>
+</div>

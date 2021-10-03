@@ -34,7 +34,8 @@
             },
               data: 'grant_type=password&username=SuperPowerUser&password=MySuperP@ss!'
           }).then(function (response) {
-                document.cookie = "token=" + response.data.access_token;
+              document.cookie = "token=" + response.data.access_token;
+              document.cookie = "Username=" + emailuser;
                 //Return to homepage
               $location.path("/main")
           }, function (response) {

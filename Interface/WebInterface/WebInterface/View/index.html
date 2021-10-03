@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="UserApp">
+<title>The User Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<head>
+    <script data-require="angular.js@*" data-semver="1.3.0-beta.5" src="https://code.angularjs.org/1.3.0-beta.5/angular.js"></script>
+    <script data-require="angular-route@*" data-semver="1.2.14" src="https://code.angularjs.org/1.2.14/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="MainController.js"></script>
+    <script src="LoginController.js"></script>
+    <script src="SigninController.js"></script>
+</head>
+
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="#home" class="w3-bar-item w3-button"> <b>The User Page</b></a>
+    <!-- Float links to the Left. Hide them on small screens -->
+    <div class="w3-left w3-hide-small">
+      <a href="#Projects" class="w3-bar-item w3-button">Projects</a>
+      <a href="#Tasks" class="w3-bar-item w3-button">Tasks</a>
+    </div>
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right">
+        <a href="#login" class="w3-bar-item w3-button">User</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="w3-content w3-padding" style="max-width:1564px">
+  <!-- <h2>User</h2> -->
+  <div ng-view></div>
+</div>
+
+
+
+</body>
+</html>

@@ -921,12 +921,17 @@
     <Content Include="View\LoginController.js" />
     <Content Include="View\main.html" />
     <Content Include="View\MainController.js" />
+    <Content Include="View\Projects\ProjectCreate.html" />
+    <Content Include="View\Projects\ProjectMain.html" />
+    <Content Include="View\Projects\ProjectMainController.js" />
     <Content Include="View\signin.html" />
     <Content Include="View\SigninController.js" />
     <Content Include="View\user.html" />
+    <Content Include="View\UserController.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Infrastructure\ApplicationDbContext.cs" />
@@ -990,6 +995,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="View\Tasks\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -33,7 +33,7 @@ namespace ProjetoeExemplo
 
             EnableCors(httpConfig);
 
-            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
+            //app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
 
             app.UseWebApi(httpConfig);
 
@@ -59,8 +59,9 @@ namespace ProjetoeExemplo
 
         public static void EnableCors(HttpConfiguration config)
         {
-            var corsAttr = new EnableCorsAttribute("http://localhost:44366", "", "");
+            var corsAttr = new EnableCorsAttribute("http://localhost:44366", "*", "*");
             config.EnableCors(corsAttr);
+
         }
 
         private void ConfigureOAuthTokenGeneration(IAppBuilder app)
