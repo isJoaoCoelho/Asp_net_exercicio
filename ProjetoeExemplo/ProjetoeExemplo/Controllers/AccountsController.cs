@@ -20,6 +20,15 @@ namespace ProjetoeExemplo.Controllers
 			return Ok(this.AppUserManager.Users.ToList().Select(u => this.TheModelFactory.Create(u)));
 		}
 
+		[Authorize(Roles = "Project_Manager")]
+		[Route("users2")]
+		public IHttpActionResult GetUsersnd()
+		{
+			return Ok(this.AppUserManager.Users.ToList().Select(u => this.TheModelFactory.Create(u)));
+		}
+
+
+
 		[Authorize]
 		[Route("user/{id:guid}", Name = "GetUserById")]
 		public async Task<IHttpActionResult> GetUser(string Id)
@@ -65,6 +74,7 @@ namespace ProjetoeExemplo.Controllers
 				Email = createUserModel.Email,
 				FirstName = createUserModel.FirstName,
 				LastName = createUserModel.LastName,
+				EmailConfirmed = true,
 				Level = 3,
 				JoinDate = DateTime.Now.Date,
 			};
@@ -75,6 +85,9 @@ namespace ProjetoeExemplo.Controllers
 			{
 				return GetErrorResult(addUserResult);
 			}
+
+			// add to roles
+			await this.AppUserManager.AddToRoleAsync(user.Id, createUserModel.RoleName);
 
 			Uri locationHeader = new Uri(Url.Link("GetUserById", new { id = user.Id }));
 

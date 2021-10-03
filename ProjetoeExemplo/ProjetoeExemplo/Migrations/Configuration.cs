@@ -33,6 +33,24 @@ namespace ProjetoeExemplo.Migrations
             };
 
             manager.Create(user, "MySuperP@ssword!");
+
+            // create roles
+
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            string[] roleNames = { "Project_Manager", "Programer" };
+
+            foreach (var roles in roleNames)
+            {
+                if (!roleManager.RoleExists(roles))
+                {
+                    var role = new IdentityRole();
+                    role.Name = roles;
+                    roleManager.Create(role);
+                }
+
+            }
+
+
         }
     }
 }

@@ -942,6 +942,10 @@
     <Compile Include="Migrations\202109271053525_UpdateComModel.Designer.cs">
       <DependentUpon>202109271053525_UpdateComModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110031331390_updateRoles.cs" />
+    <Compile Include="Migrations\202110031331390_updateRoles.Designer.cs">
+      <DependentUpon>202110031331390_updateRoles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\ModelFactory.cs" />
@@ -979,6 +983,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109271053525_UpdateComModel.resx">
       <DependentUpon>202109271053525_UpdateComModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110031331390_updateRoles.resx">
+      <DependentUpon>202110031331390_updateRoles.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
