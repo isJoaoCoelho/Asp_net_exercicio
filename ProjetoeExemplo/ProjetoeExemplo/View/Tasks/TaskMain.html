@@ -15,15 +15,18 @@
                 <th>Task Name</th>
                 <th>ProjectId</th>
                 <th>Time</th>
+                <th>State</th>
 
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="info in data | orderBy:repoSortOrder">
                 <td>{{info.id}}</td>
-                <td>{{info.projName}}</td>
-                <td>{{info.budget}}</td>
-                <td>{{info.budget}}</td>
+                <td>{{info.taskName}}</td>
+                <td>{{info.projectId}}</td>
+                <td>{{info.dataLimite}}</td>
+                <td>{{info.state}}</td>
+
                 <td>
                     <button ng-click="deleteProj(info)" ng-confirm-click="Are you sure you want to delete this Project?" class="w3-button w3-green">Mark Complete</button>
                     <button ng-click="deleteProj(info)" ng-confirm-click2="Are you sure you want to delete this Project?" class="w3-button w3-green">Delete</button>

@@ -206,12 +206,11 @@ C:\Users\JoaoCoelho\Dropbox\EstágioUC\GitRepo\Asp_net_exercicio\ProjetoeExemplo
 C:\Users\JoaoCoelho\Dropbox\EstágioUC\GitRepo\Asp_net_exercicio\ProjetoeExemplo\ProjetoeExemplo\bin\System.Web.Http.Owin.xml
 C:\Users\JoaoCoelho\Dropbox\EstágioUC\GitRepo\Asp_net_exercicio\ProjetoeExemplo\ProjetoeExemplo\bin\Thinktecture.IdentityModel.Core.pdb
 C:\Users\JoaoCoelho\Dropbox\EstágioUC\GitRepo\Asp_net_exercicio\ProjetoeExemplo\ProjetoeExemplo\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\JoaoCoelho\Dropbox\EstágioUC\GitRepo\Asp_net_exercicio\ProjetoeExemplo\ProjetoeExemplo\obj\Debug\ProjetoeExemplo.csproj.AssemblyReference.cache
 C:\Users\JoaoCoelho\Dropbox\EstágioUC\GitRepo\Asp_net_exercicio\ProjetoeExemplo\ProjetoeExemplo\obj\Debug\ProjetoeExemplo.Migrations.InitialCreate.resources
 C:\Users\JoaoCoelho\Dropbox\EstágioUC\GitRepo\Asp_net_exercicio\ProjetoeExemplo\ProjetoeExemplo\obj\Debug\ProjetoeExemplo.Migrations.UpdateComModel.resources
+C:\Users\JoaoCoelho\Dropbox\EstágioUC\GitRepo\Asp_net_exercicio\ProjetoeExemplo\ProjetoeExemplo\obj\Debug\ProjetoeExemplo.Migrations.updateRoles.resources
 C:\Users\JoaoCoelho\Dropbox\EstágioUC\GitRepo\Asp_net_exercicio\ProjetoeExemplo\ProjetoeExemplo\obj\Debug\ProjetoeExemplo.csproj.GenerateResource.cache
 C:\Users\JoaoCoelho\Dropbox\EstágioUC\GitRepo\Asp_net_exercicio\ProjetoeExemplo\ProjetoeExemplo\obj\Debug\ProjetoeExemplo.csproj.CoreCompileInputs.cache
 C:\Users\JoaoCoelho\Dropbox\EstágioUC\GitRepo\Asp_net_exercicio\ProjetoeExemplo\ProjetoeExemplo\obj\Debug\ProjetoeExemplo.csproj.CopyComplete
 C:\Users\JoaoCoelho\Dropbox\EstágioUC\GitRepo\Asp_net_exercicio\ProjetoeExemplo\ProjetoeExemplo\obj\Debug\ProjetoeExemplo.dll
 C:\Users\JoaoCoelho\Dropbox\EstágioUC\GitRepo\Asp_net_exercicio\ProjetoeExemplo\ProjetoeExemplo\obj\Debug\ProjetoeExemplo.pdb
-C:\Users\JoaoCoelho\Dropbox\EstágioUC\GitRepo\Asp_net_exercicio\ProjetoeExemplo\ProjetoeExemplo\obj\Debug\ProjetoeExemplo.Migrations.updateRoles.resources

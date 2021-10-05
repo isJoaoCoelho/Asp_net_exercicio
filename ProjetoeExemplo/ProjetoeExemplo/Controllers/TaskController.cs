@@ -46,8 +46,8 @@ namespace ProjetoeExemplo.Controllers
 
 		}
 
-		[Route("delTask")]
-		public async Task<IHttpActionResult> delTask(TaskDo createTaskModel)
+		[Route("deleteTasks")]
+		public async Task<IHttpActionResult> apagaTask(TaskDo createTaskModel)
 		{
 			if (ModelState.IsValid)
 			{

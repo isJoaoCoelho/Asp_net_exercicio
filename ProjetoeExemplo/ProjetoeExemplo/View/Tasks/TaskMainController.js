@@ -114,21 +114,19 @@
 
         $scope.deleteProj = function (info) {
             //console.log(info);
-            var selectedItem = info.userId;
-            var ProjectName = info.projName;
-            var Budget = info.budget;
 
             $http({
                 method: 'POST',
-                url: 'https://localhost:44366/api/projects/delProject',
+                url: 'https://localhost:44366/api/tasks/deleteTasks',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
                 data: {
-                    "UserId": selectedItem,
-                    "ProjName": ProjectName,
-                    "Budget": Budget,
+                    "UserId": info.userId,
+                    "ProjectId": info.projectId,
+                    "TaskName": info.taskName,
+                    "DataLimite": info.dataLimite,
                     "id": info.id
                 }
             }).then(function (response) {
@@ -139,7 +137,7 @@
             }, function (response) {
                 $scope.errormsg = "Wrong Password/User";
             });
-            alert('Project is being Deleted, please refresh the page!');
+            alert('Task is being Deleted, please refresh the page!');
         };
 
         getProjects();
