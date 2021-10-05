@@ -1,0 +1,35 @@
+﻿<div>
+
+    <br /><br />
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Tasks</h3>
+    <p>
+        {{error}}
+    </p>
+
+    <a href="#Tasks/Create" ng-style={color:'blue'}>Create New Task</a><br />
+
+    <table class="w3-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Task Name</th>
+                <th>ProjectId</th>
+                <th>Time</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="info in data | orderBy:repoSortOrder">
+                <td>{{info.id}}</td>
+                <td>{{info.projName}}</td>
+                <td>{{info.budget}}</td>
+                <td>{{info.budget}}</td>
+                <td>
+                    <button ng-click="deleteProj(info)" ng-confirm-click="Are you sure you want to delete this Project?" class="w3-button w3-green">Mark Complete</button>
+                    <button ng-click="deleteProj(info)" ng-confirm-click2="Are you sure you want to delete this Project?" class="w3-button w3-green">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

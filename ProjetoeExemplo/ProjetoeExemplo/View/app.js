@@ -16,9 +16,13 @@
                 templateUrl: "Projects/ProjectCreate.html",
                 controller: "ProjectMainController"
             })
+            .when("/Tasks/Create", {
+                templateUrl: "Tasks/TaskCreate.html",
+                controller: "TaskMainController"
+            })
              .when("/Tasks", {
-                 templateUrl: "main.html",
-                 controller: "MainController"
+                 templateUrl: "Tasks/TaskMain.html",
+                 controller: "TaskMainController"
              })
              .when("/Singin", {
                  templateUrl: "signin.html",
