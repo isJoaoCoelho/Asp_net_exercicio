@@ -1,0 +1,38 @@
+﻿<div>
+
+    <br /><br />
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Tasks</h3>
+    <p>
+        {{error}}
+    </p>
+
+    <a href="#Tasks/Create" ng-style={color:'blue'}>Create New Task</a><br />
+
+    <table class="w3-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Task Name</th>
+                <th>ProjectId</th>
+                <th>Time</th>
+                <th>State</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="info in data | orderBy:repoSortOrder">
+                <td>{{info.id}}</td>
+                <td>{{info.taskName}}</td>
+                <td>{{info.projectId}}</td>
+                <td>{{info.dataLimite}}</td>
+                <td>{{info.state}}</td>
+
+                <td>
+                    <button ng-click="gottomark(info)"  class="w3-button w3-green">Mark Complete</button>
+                    <button ng-click="gottodelete(info)" class="w3-button w3-green">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

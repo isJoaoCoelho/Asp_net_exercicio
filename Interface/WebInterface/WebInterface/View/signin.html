@@ -4,7 +4,7 @@
     <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="singin">
         <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Sign in</h3>
         <span ng-style={color:'green'}>{{regmsg}}</span>
-        <form ng-submit="makeRegister(FirstName,LastNAme,UserName,Email,Password,ConfirmPassword)">
+        <form ng-submit="makeRegister(FirstName,LastNAme,UserName,Email,Password,ConfirmPassword,roleButton)">
 
             <input class="w3-input w3-border" type="text" placeholder="First Name" required name="First Name" ng-model="FirstName">
             <input class="w3-input w3-section w3-border" type="text" placeholder="Last Name" required name="Last Name" ng-model="LastNAme">
@@ -12,8 +12,16 @@
             <input class="w3-input w3-border" type="text" placeholder="UserName" required name="UserName" ng-model="UserName">
             <input class="w3-input w3-section w3-border" type="text" placeholder="Email" required name="Email" ng-model="Email">
 
-            <input class="w3-input w3-border" type="text" placeholder="Password" required name="Password" ng-model="Password">
-            <input class="w3-input w3-section w3-border" type="text" placeholder="Confirm Password" required name="Confirm Password" ng-model="ConfirmPassword">
+            <input class="w3-input w3-border" type="password" placeholder="Password" required name="Password" ng-model="Password">
+            <input class="w3-input w3-section w3-border" type="password" placeholder="Confirm Password" required name="Confirm Password" ng-model="ConfirmPassword">
+
+            <div class="container white-space:nowrap">
+                <a>Insert the type of user:</a>
+                <input type="radio" ng-model="roleButton" value="Project_Manager" checked/>
+                <label for="Project_Manager">Project Manager</label>
+                <input type="radio" ng-model="roleButton" value="Programer" />
+                <label for="Programer">Programer</label> <br />
+            </div>
 
             <button class="w3-button w3-black w3-section" type="submit">
                 <i class="fa fa-paper-plane"></i> Sign in

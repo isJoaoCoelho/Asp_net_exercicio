@@ -21,18 +21,27 @@
 
             $http({
                 method: 'POST',
-                url: 'https://localhost:44366/oauth/token',
+                url: 'https://localhost:44366/api/accounts/create',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                data: 'Email=' + Email + '&UserName=' + UserName + '&Password=' + Password + '&ConfirmPassword=' + ConfirmPassword + '&FirstName=' + FirstName + '&LastName=' + LastNAme + '&RoleName=' + roleButton
+                data: {
+                    "Email": Email,
+                    "UserName": UserName,
+                    "Password": Password,
+                    "ConfirmPassword": ConfirmPassword,
+                    "FirstName": FirstName,
+                    "LastName": LastNAme,
+                    "RoleName": roleButton
+                }
             }).then(function (response) {
                 $scope.regmsg = "SignIn Made";
                 //Return to homepage
                 $location.path("/main")
             }, function (response) {
-                $scope.regmsg = "Ups something went wrong";
+                console.log(response.data);
+                $scope.regmsg = "Ups somethin went wrong";
             });
         };
     };

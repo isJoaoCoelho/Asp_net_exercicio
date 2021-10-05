@@ -1,0 +1,40 @@
+﻿<div>
+
+    <!-- Contact Section -->
+    <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="singin">
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Create Task</h3>
+        <span ng-style={color:'green'}>{{regmsg}}</span>
+
+        <form ng-submit="CreateTask(selectedItem,selectedProject,TaskName,Dateo)">
+
+
+
+            <br />
+            <input class="w3-input w3-border" type="text" placeholder="Task Name" required name="Task Name" ng-model="TaskName">
+
+            <br />
+
+            <a>Project </a>
+            <select ng-model="selectedProject" ng-options="Type.value as Type.name for Type in TypesProject" class="w3-container w3-content">
+                <option value="" selected disabled>Select the Project</option>
+            </select>
+
+            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+
+            <a>Task User </a>
+            <select ng-model="selectedItem" ng-options="Type.value as Type.name for Type in Types" class="w3-container w3-content">
+                <option value="" selected disabled>Select the User.</option>
+            </select>
+
+            <br />
+
+            <input class="w3-input w3-section w3-border" type="date" placeholder="Date" required name="Date" ng-model="Dateo">
+
+            <button class="w3-button w3-black w3-section" type="submit">
+                <i class="fa fa-paper-plane"></i> Create
+            </button>
+            <br />
+            <a href="#Tasks" ng-style={color:'blue'}>Return to Tasks</a><br />
+        </form>
+    </div>
+</div>

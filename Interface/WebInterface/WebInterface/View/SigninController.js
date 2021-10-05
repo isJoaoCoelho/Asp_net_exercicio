@@ -6,30 +6,42 @@
 
         console.log("entrei no registration page");
 
-        $scope.makeRegister = function (FirstName, LastNAme, UserName, Email, Password, ConfirmPassword) {
+        $scope.makeRegister = function (FirstName, LastNAme, UserName, Email, Password, ConfirmPassword, roleButton) {
             console.log("entrei no register page");
 
-            ResgiterUser(userData);
+            ResgiterUser(FirstName, LastNAme, UserName, Email, Password, ConfirmPassword, roleButton);
         };
 
-        var ResgiterUser = function (FirstName, LastNAme, UserName, Email, Password, ConfirmPassword) {
+        var ResgiterUser = function (FirstName, LastNAme, UserName, Email, Password, ConfirmPassword, roleButton) {
 
             //let headers = new HttpHeaders().set('access-control-allow-origin',"http://localhost:8080/");
+            if (!roleButton) {
+                roleButton = "Programer";
+            };
 
             $http({
                 method: 'POST',
-                url: 'https://localhost:44366/oauth/token',
+                url: 'https://localhost:44366/api/accounts/create',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                data: 'Email=' + Email + '&UserName=' + UserName + '&Password=' + Password + '&ConfirmPassword=' + ConfirmPassword +'&FirstName=' + FirstName + '&LastName=' + LastNAme
+                data: {
+                    "Email": Email,
+                    "UserName": UserName,
+                    "Password": Password,
+                    "ConfirmPassword": ConfirmPassword,
+                    "FirstName": FirstName,
+                    "LastName": LastNAme,
+                    "RoleName": roleButton
+                }
             }).then(function (response) {
                 $scope.regmsg = "SignIn Made";
                 //Return to homepage
                 $location.path("/main")
             }, function (response) {
-                $scope.regmsg = "Ups something went wrong";
+                console.log(response.data);
+                $scope.regmsg = "Ups somethin went wrong";
             });
         };
     };

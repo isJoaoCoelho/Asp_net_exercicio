@@ -17,7 +17,7 @@ namespace ProjetoeExemplo.Controllers
 
 		private ApplicationDbContext db = new ApplicationDbContext();
 
-		//[Authorize]
+		[Authorize]
 		[Route("projects")]
 		public IHttpActionResult GetProjects()
 		{
@@ -26,13 +26,14 @@ namespace ProjetoeExemplo.Controllers
 			return Ok(projectlist);
 		}
 
+		[Authorize(Roles = "Project_Manager")]
 		[Route("users")]
 		public IHttpActionResult GetUsers()
 		{
 			return Ok(this.AppUserManager.Users.ToList().Select(u => this.TheModelFactory.Create(u)));
 		}
 
-
+		[Authorize(Roles = "Project_Manager")]
 		[Route("createProject")]
 		public async Task<IHttpActionResult> CreateProject(Project createProjectModel)
 		{
@@ -46,12 +47,27 @@ namespace ProjetoeExemplo.Controllers
 
 		}
 
+		[Authorize(Roles = "Project_Manager")]
 		[Route("delProject")]
 		public async Task<IHttpActionResult> delProject(Project createProjectModel)
 		{
 			Project projectTable = db.Projects.Find(createProjectModel.Id);
 			if (projectTable != null)
             {
+				// Error in cascade deletion. Manual deletion of conected tasks bellow
+				var tasksofproject = (from b in db.TaskDos
+							where b.ProjectId == projectTable.Id
+							select b).ToArray();
+
+				if (tasksofproject.Length != 0)
+                {
+					for (int i = 0; i < tasksofproject.Length; i++)
+					{
+						db.TaskDos.Remove(tasksofproject[i]);
+					}
+
+				}
+
 				db.Projects.Remove(projectTable);
 				db.SaveChanges();
             }

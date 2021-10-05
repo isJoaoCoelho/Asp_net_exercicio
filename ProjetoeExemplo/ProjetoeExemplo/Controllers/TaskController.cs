@@ -18,22 +18,34 @@ namespace ProjetoeExemplo.Controllers
 
 		private ApplicationDbContext db = new ApplicationDbContext();
 
-		//[Authorize]
+		[Authorize]
 		[Route("tasks")]
 		public IHttpActionResult GetTasks()
 		{
-			var projectlist = db.TaskDos.ToList();
 
-			return Ok(projectlist);
+			if (User.IsInRole("Project_Manager"))
+			{
+				var projectlist = db.TaskDos.ToList();
+
+				return Ok(projectlist);
+			}
+			else
+			{
+				var userId = User.Identity.GetUserId();
+				var projectlist = db.TaskDos.Where(b => b.UserId == userId).ToList();
+
+				return Ok(projectlist);
+			}
 		}
 
+		[Authorize]
 		[Route("users")]
 		public IHttpActionResult GetUsers()
 		{
 			return Ok(this.AppUserManager.Users.ToList().Select(u => this.TheModelFactory.Create(u)));
 		}
 
-
+		[Authorize]
 		[Route("createTask")]
 		public async Task<IHttpActionResult> CreateTask(TaskDo createTaskModel)
 		{
@@ -47,6 +59,7 @@ namespace ProjetoeExemplo.Controllers
 
 		}
 
+		[Authorize]
 		[Route("deleteTasks")]
 		public async Task<IHttpActionResult> apagaTask(TaskDo createTaskModel)
 		{
@@ -72,6 +85,7 @@ namespace ProjetoeExemplo.Controllers
 
 		}
 
+		[Authorize]
 		[Route("markTasks")]
 		public async Task<IHttpActionResult> updatethemarkedTask(TaskDo createTaskModel)
 		{

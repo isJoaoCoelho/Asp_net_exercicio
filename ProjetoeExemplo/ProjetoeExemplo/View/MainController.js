@@ -39,7 +39,6 @@
             $scope.username = "Anonymous user, please login";
         };
 
-
         checklogin();
         $scope.countdown = 5;
         //startCountdown();

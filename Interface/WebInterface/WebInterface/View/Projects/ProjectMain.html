@@ -1,0 +1,30 @@
+﻿<div>
+
+    <br /><br />
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Projects</h3>
+    <p>
+        {{error}}
+    </p>
+
+    <a href="#Projects/Create" ng-style={color:'blue'}>Create New Project</a><br />
+
+    <table class="w3-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Project Name</th>
+                <th>Budget</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="info in data | orderBy:repoSortOrder">
+                <td>{{info.id}}</td>
+                <td>{{info.projName}}</td>
+                <td>{{info.budget}}</td>
+                <td><button ng-click="gottodelete(info)" class="w3-button w3-green">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

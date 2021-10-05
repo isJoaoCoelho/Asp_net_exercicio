@@ -30,15 +30,14 @@
             let cookies = document.cookie;
             var arraycookies = cookies.split(';');
             for (var i = 0; i < arraycookies.length; i++) {
-                if (arraycookies[i].includes("token")) {
-                    $scope.username = "Loged in to user: TEMP";
+                if (arraycookies[i].includes("Username")) {
+                    $scope.username = "Loged in to user: " + arraycookies[i].split('=')[1];
                     $scope.autenticated = true;
                     return;
                 }
             }
             $scope.username = "Anonymous user, please login";
         };
-
 
         checklogin();
         $scope.countdown = 5;
