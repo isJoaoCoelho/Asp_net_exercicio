@@ -12,6 +12,7 @@
 
             delete_cookie("Username");
             delete_cookie("token");
+            delete_cookie("Role");
 
             $window.location.href = "#/main.html"
         };

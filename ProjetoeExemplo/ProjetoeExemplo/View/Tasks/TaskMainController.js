@@ -27,11 +27,13 @@
             var dateOut = new Date(Dateo);
 
             // allows selection of first object
-            if (selectedProject == undefined) {
-                selectedProject = $scope.TypesProject[0].value;
-            };
-            if (selectedItem == undefined) {
-                selectedProject = $scope.Types[0].value;
+            if ($scope.TypesProject.length != 0) {
+                if (selectedProject == undefined) {
+                    selectedProject = $scope.TypesProject[0].value;
+                };
+                if (selectedItem == undefined) {
+                    selectedProject = $scope.Types[0].value;
+                };
             };
 
             // calls function to put value

@@ -114,6 +114,24 @@ namespace ProjetoeExemplo.Controllers
 			return Ok();
 		}
 
+
+		[Authorize]
+		[Route("GetRole")]
+		public async Task<IHttpActionResult> GetUserRole()
+		{
+			if (User.IsInRole("Project_Manager"))
+            {
+				return Ok("Project_Manager");
+			}
+            else
+            {
+				return Ok("Programer");
+            }
+
+			return NotFound();
+
+		}
+
 	}
 
 
