@@ -140,6 +140,35 @@
             alert('Task is being Deleted, please refresh the page!');
         };
 
+        $scope.updatetask = function (info) {
+            //console.log(info);
+
+            $http({
+                method: 'POST',
+                url: 'https://localhost:44366/api/tasks/markTasks',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                data: {
+                    "UserId": info.userId,
+                    "ProjectId": info.projectId,
+                    "TaskName": info.taskName,
+                    "DataLimite": info.dataLimite,
+                    "id": info.id
+                }
+            }).then(function (response) {
+                //document.cookie = "token=" + response.data.access_token;
+                //document.cookie = "Username=" + emailuser;
+                //Return to homepage
+                $location.path("/Projects")
+            }, function (response) {
+                $scope.errormsg = "Wrong Password/User";
+            });
+            alert('Task is being Deleted, please refresh the page!');
+        };
+
+
         getProjects();
         populateUsers();
         populateProjects();
@@ -156,23 +185,6 @@
                 terminal: true,
                 link: function (scope, element, attr) {
                     var msg = attr.ngConfirmClick || "Are you sure?";
-                    var clickAction = attr.ngClick;
-                    element.bind('click', function (event) {
-                        if (window.confirm(msg)) {
-                            scope.$eval(clickAction)
-                        }
-                    });
-                }
-            };
-        }])
-
-    app.directive('ngConfirmClick2', [
-        function () {
-            return {
-                priority: 1,
-                terminal: true,
-                link: function (scope, element, attr) {
-                    var msg = attr.ngConfirmClick || "Are you sure 2?";
                     var clickAction = attr.ngClick;
                     element.bind('click', function (event) {
                         if (window.confirm(msg)) {

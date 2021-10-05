@@ -3,6 +3,7 @@ using ProjetoeExemplo.Infrastructure;
 using ProjetoeExemplo.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -53,6 +54,21 @@ namespace ProjetoeExemplo.Controllers
 			{
 				TaskDo taskTable = db.TaskDos.Find(createTaskModel.Id);
 				db.TaskDos.Remove(taskTable);
+				db.SaveChanges();
+			}
+
+			return Ok();
+
+		}
+
+		[Route("markTasks")]
+		public async Task<IHttpActionResult> updatethemarkedTask(TaskDo createTaskModel)
+		{
+			if (ModelState.IsValid)
+			{
+				createTaskModel.State = true;
+
+				db.Entry(createTaskModel).State = EntityState.Modified;
 				db.SaveChanges();
 			}
 
