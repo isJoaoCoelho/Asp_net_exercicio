@@ -16,6 +16,18 @@
                 templateUrl: "Projects/ProjectCreate.html",
                 controller: "ProjectMainController"
             })
+            .when("/Projects/Delete/:ProjectId", {
+                templateUrl: "Projects/ProjectDelete.html",
+                controller: "ProjectMainController"
+            })
+            .when("/Tasks/Delete/:TaskId", {
+                templateUrl: "Tasks/TaskDelete.html",
+                controller: "TaskMainController"
+            })
+            .when("/Tasks/Mark/:TaskId", {
+                templateUrl: "Tasks/TaskMark.html",
+                controller: "TaskMainController"
+            })
             .when("/Tasks/Create", {
                 templateUrl: "Tasks/TaskCreate.html",
                 controller: "TaskMainController"

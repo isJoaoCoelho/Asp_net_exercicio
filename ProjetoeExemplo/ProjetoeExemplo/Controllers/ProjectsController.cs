@@ -49,12 +49,22 @@ namespace ProjetoeExemplo.Controllers
 		[Route("delProject")]
 		public async Task<IHttpActionResult> delProject(Project createProjectModel)
 		{
-			if (ModelState.IsValid)
-			{
-				Project projectTable = db.Projects.Find(createProjectModel.Id);
+			Project projectTable = db.Projects.Find(createProjectModel.Id);
+			if (projectTable != null)
+            {
 				db.Projects.Remove(projectTable);
 				db.SaveChanges();
-			}
+            }
+            else
+            {
+				return BadRequest();
+            }
+			//if (ModelState.IsValid)
+			//{
+			//	Project projectTable = db.Projects.Find(createProjectModel.Id);
+			//	db.Projects.Remove(projectTable);
+			//	db.SaveChanges();
+			//}
 
 			return Ok();
 

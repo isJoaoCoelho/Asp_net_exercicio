@@ -50,12 +50,23 @@ namespace ProjetoeExemplo.Controllers
 		[Route("deleteTasks")]
 		public async Task<IHttpActionResult> apagaTask(TaskDo createTaskModel)
 		{
-			if (ModelState.IsValid)
+			TaskDo taskTable = db.TaskDos.Find(createTaskModel.Id);
+			if (taskTable != null)
 			{
-				TaskDo taskTable = db.TaskDos.Find(createTaskModel.Id);
 				db.TaskDos.Remove(taskTable);
 				db.SaveChanges();
 			}
+			else
+			{
+				return BadRequest();
+			}
+
+			//if (ModelState.IsValid)
+			//{
+			//	TaskDo taskTable = db.TaskDos.Find(createTaskModel.Id);
+			//	db.TaskDos.Remove(taskTable);
+			//	db.SaveChanges();
+			//}
 
 			return Ok();
 
@@ -64,13 +75,27 @@ namespace ProjetoeExemplo.Controllers
 		[Route("markTasks")]
 		public async Task<IHttpActionResult> updatethemarkedTask(TaskDo createTaskModel)
 		{
-			if (ModelState.IsValid)
-			{
-				createTaskModel.State = true;
 
-				db.Entry(createTaskModel).State = EntityState.Modified;
-				db.SaveChanges();
+			TaskDo taskTable = db.TaskDos.Find(createTaskModel.Id);
+			if (taskTable != null)
+			{
+				taskTable.State = true;
+
+                db.Entry(taskTable).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+			else
+			{
+				return BadRequest();
 			}
+
+			//if (ModelState.IsValid)
+			//{
+			//	createTaskModel.State = true;
+
+			//	db.Entry(createTaskModel).State = EntityState.Modified;
+			//	db.SaveChanges();
+			//}
 
 			return Ok();
 

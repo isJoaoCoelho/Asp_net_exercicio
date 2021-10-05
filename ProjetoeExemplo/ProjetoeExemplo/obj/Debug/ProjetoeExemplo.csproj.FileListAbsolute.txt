@@ -214,3 +214,4 @@ C:\Users\JoaoCoelho\Dropbox\EstágioUC\GitRepo\Asp_net_exercicio\ProjetoeExemplo
 C:\Users\JoaoCoelho\Dropbox\EstágioUC\GitRepo\Asp_net_exercicio\ProjetoeExemplo\ProjetoeExemplo\obj\Debug\ProjetoeExemplo.csproj.CopyComplete
 C:\Users\JoaoCoelho\Dropbox\EstágioUC\GitRepo\Asp_net_exercicio\ProjetoeExemplo\ProjetoeExemplo\obj\Debug\ProjetoeExemplo.dll
 C:\Users\JoaoCoelho\Dropbox\EstágioUC\GitRepo\Asp_net_exercicio\ProjetoeExemplo\ProjetoeExemplo\obj\Debug\ProjetoeExemplo.pdb
+C:\Users\JoaoCoelho\Dropbox\EstágioUC\GitRepo\Asp_net_exercicio\ProjetoeExemplo\ProjetoeExemplo\obj\Debug\ProjetoeExemplo.csproj.AssemblyReference.cache

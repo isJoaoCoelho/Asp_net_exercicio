@@ -922,10 +922,13 @@
     <Content Include="View\main.html" />
     <Content Include="View\MainController.js" />
     <Content Include="View\Projects\ProjectCreate.html" />
+    <Content Include="View\Projects\ProjectDelete.html" />
     <Content Include="View\Projects\ProjectMain.html" />
     <Content Include="View\Projects\ProjectMainController.js" />
     <Content Include="View\signin.html" />
     <Content Include="View\SigninController.js" />
+    <Content Include="View\Tasks\TaskMark.html" />
+    <Content Include="View\Tasks\TaskDelete.html" />
     <Content Include="View\Tasks\TaskCreate.html" />
     <Content Include="View\Tasks\TaskMainController.js" />
     <Content Include="View\Tasks\TaskMain.html" />

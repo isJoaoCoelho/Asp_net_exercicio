@@ -2,7 +2,7 @@
 
     var app = angular.module("UserApp");
 
-    var ProjectMainController = function ($scope, $http, $location) {
+    var ProjectMainController = function ($scope, $http, $location, $routeParams) {
 
         $scope.error = "Loading";
 
@@ -79,11 +79,15 @@
 
         };
 
-        $scope.deleteProj = function (info) {
+        $scope.gottodelete = function (info) {
+            $location.path("/Projects/Delete/" + info.id);
+        };
+
+        $scope.NewdeleteProj = function () {
             //console.log(info);
-            var selectedItem = info.userId;
-            var ProjectName = info.projName;
-            var Budget = info.budget;
+            var selectedItem = null;
+            var ProjectName = null;
+            var Budget = null;
 
             $http({
                 method: 'POST',
@@ -96,7 +100,7 @@
                     "UserId": selectedItem,
                     "ProjName": ProjectName,
                     "Budget": Budget,
-                    "id": info.id
+                    "id": $scope.idifavailabel
                 }
             }).then(function (response) {
                 //document.cookie = "token=" + response.data.access_token;
@@ -106,33 +110,16 @@
             }, function (response) {
                 $scope.errormsg = "Wrong Password/User";
             });
-            alert('Project is being Deleted, please refresh the page!');
         };
+
 
         getProjects();
         populateUsers();
+        $scope.idifavailabel = $routeParams.ProjectId
 
 
     };
 
     app.controller("ProjectMainController", ProjectMainController);
-
-    app.directive('ngConfirmClick', [
-        function () {
-            return {
-                priority: 1,
-                terminal: true,
-                link: function (scope, element, attr) {
-                    var msg = attr.ngConfirmClick || "Are you sure?";
-                    var clickAction = attr.ngClick;
-                    element.bind('click', function (event) {
-                        if (window.confirm(msg)) {
-                            scope.$eval(clickAction)
-                        }
-                    });
-                }
-            };
-        }])
-
 
 }());

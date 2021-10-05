@@ -2,7 +2,7 @@
 
     var app = angular.module("UserApp");
 
-    var TaskMainController = function ($scope, $http, $location) {
+    var TaskMainController = function ($scope, $http, $location, $routeParams) {
 
         $scope.error = "Loading";
 
@@ -25,6 +25,14 @@
         $scope.CreateTask = function (selectedItem, selectedProject, TaskName, Dateo) {
 
             var dateOut = new Date(Dateo);
+
+            // allows selection of first object
+            if (selectedProject == undefined) {
+                selectedProject = $scope.TypesProject[0].value;
+            };
+            if (selectedItem == undefined) {
+                selectedProject = $scope.Types[0].value;
+            };
 
             // calls function to put value
             $http({
@@ -111,8 +119,15 @@
                 });
         };
 
+        $scope.gottodelete = function (info) {
+            $location.path("/Tasks/Delete/" + info.id);
+        };
 
-        $scope.deleteProj = function (info) {
+        $scope.gottomark = function (info) {
+            $location.path("/Tasks/Mark/" + info.id);
+        };
+
+        $scope.deleteProj = function () {
             //console.log(info);
 
             $http({
@@ -123,24 +138,23 @@
                     'Content-Type': 'application/json'
                 },
                 data: {
-                    "UserId": info.userId,
-                    "ProjectId": info.projectId,
-                    "TaskName": info.taskName,
-                    "DataLimite": info.dataLimite,
-                    "id": info.id
+                    "UserId": null,
+                    "ProjectId": null,
+                    "TaskName": null,
+                    "DataLimite": null,
+                    "id": $scope.idifavailabel
                 }
             }).then(function (response) {
                 //document.cookie = "token=" + response.data.access_token;
                 //document.cookie = "Username=" + emailuser;
                 //Return to homepage
-                $location.path("/Projects")
+                $location.path("/Tasks")
             }, function (response) {
                 $scope.errormsg = "Wrong Password/User";
             });
-            alert('Task is being Deleted, please refresh the page!');
         };
 
-        $scope.updatetask = function (info) {
+        $scope.updatetask = function () {
             //console.log(info);
 
             $http({
@@ -151,49 +165,32 @@
                     'Content-Type': 'application/json'
                 },
                 data: {
-                    "UserId": info.userId,
-                    "ProjectId": info.projectId,
-                    "TaskName": info.taskName,
-                    "DataLimite": info.dataLimite,
-                    "id": info.id
+                    "UserId": null,
+                    "ProjectId": null,
+                    "TaskName": null,
+                    "DataLimite": null,
+                    "id": $scope.idifavailabel
                 }
             }).then(function (response) {
                 //document.cookie = "token=" + response.data.access_token;
                 //document.cookie = "Username=" + emailuser;
                 //Return to homepage
-                $location.path("/Projects")
+                $location.path("/Tasks")
             }, function (response) {
                 $scope.errormsg = "Wrong Password/User";
             });
-            alert('Task is being Deleted, please refresh the page!');
         };
 
 
         getProjects();
         populateUsers();
         populateProjects();
+        $scope.idifavailabel = $routeParams.TaskId
 
 
     };
 
     app.controller("TaskMainController", TaskMainController);
-
-    app.directive('ngConfirmClick', [
-        function () {
-            return {
-                priority: 1,
-                terminal: true,
-                link: function (scope, element, attr) {
-                    var msg = attr.ngConfirmClick || "Are you sure?";
-                    var clickAction = attr.ngClick;
-                    element.bind('click', function (event) {
-                        if (window.confirm(msg)) {
-                            scope.$eval(clickAction)
-                        }
-                    });
-                }
-            };
-        }])
 
 
 }());
